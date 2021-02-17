@@ -32,7 +32,7 @@ class Net(nn.Module):
         # x = self.softmax(x)
         return x
 
-PATH = "classifier_restart.pt"
+PATH = "classifier.pt"
 net = Net()
 net.load_state_dict(torch.load(PATH, map_location='cpu'))
 net.eval()
