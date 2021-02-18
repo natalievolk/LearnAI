@@ -24,15 +24,13 @@ class Net(nn.Module):
         x = self.pool(F.relu(self.conv1(x)))
         x = self.pool(F.relu(self.conv2(x)))
         x = self.pool(F.relu(self.conv3(x)))
-        #print(x.shape)
         x = self.flatten(x)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.fc3(x)
-        # x = self.softmax(x)
         return x
 
-PATH = "classifier.pt"
+PATH = "app/classifier_restart.pt"
 net = Net()
 net.load_state_dict(torch.load(PATH, map_location='cpu'))
 net.eval()
